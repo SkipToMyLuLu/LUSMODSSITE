@@ -23,7 +23,7 @@
 
 
 
-fetch('/Users/lucian/Desktop/CodingNonGH/DAMODSSTIE/mods.json')
+fetch('modList.json')
     .then(response => response.json())
     .then(data => {
         const container = document.getElementById('JSON');
