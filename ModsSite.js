@@ -33,4 +33,4 @@ fetch('modList.json')
             container.appendChild(itemDiv);
         });
     })
-    .catch(error => console.error('Error fetching JSON:', error));
+    .catch(error => console.error('Error fetching JSON:' + error));
