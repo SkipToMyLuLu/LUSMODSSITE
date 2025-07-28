@@ -7,11 +7,24 @@ var project_type = promptSync('Enter project type:    ').toLowerCase();
 // display 10 current
 // 
 var search_querys_ORGIN = document.getElementById('search_querys').value;
+console.log('search querys original:   ' + search_querys_ORGIN)
 var SQ_tobe_ARAY = search_querys_ORGIN.replaceAll(' ', ',');
+console.log('search querys to search for BEOFRE SPLITTING   ' + SQ_tobe_ARAY)
 var search_querysARAY = SQ_tobe_ARAY.split(' ', ',');
-console.log(search_querysARAY + 'search querys array')
-console.log(search_querys_ORGIN + 'search querys original')
-document.getElementById('SEARCH-QUERYS-LIST').value = search_querysARAY
+console.log('search querys to search for AFTER SPLITTING   ' + search_querysARAY)
+
+const search_querys_list_container = document.getElementById('SEARCH-QUERYS-LIST');
+const ulElement = document.createElement('ul');
+
+search_querysARAY.forEach(item => {
+    const liElement = document.createElement('li');
+    liElement.textContent = item;
+    ulElement.appendChild(liElement);
+})
+
+
+
+// document.getElementById('SEARCH-QUERYS-LIST').value = search_querysARAY
 
 // = promptSync('Enter search querys:    ').toLowerCase();
 // console.log('search querys original:   ' + search_querys_ORGIN)
