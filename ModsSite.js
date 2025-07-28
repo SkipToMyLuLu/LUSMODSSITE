@@ -1,4 +1,6 @@
-var search_querys_ORGIN = document.getElementById('search-querys').value;
+var aquireHtmlInput = document.getElementById('<div contenteditable="plaintext-only"></div>')
+
+var search_querys_ORGIN = aquireHtmlInput
 console.log('search querys original:   ' + search_querys_ORGIN)
 var SQ_tobe_ARAY = search_querys_ORGIN.toLowerCase();
 console.log('search querys to search for BEOFRE SPLITTING   ' + SQ_tobe_ARAY)
@@ -14,3 +16,4 @@ search_querysARAY.forEach(item => {
     ulElement.appendChild(liElement);
 })
 
+{/* <div contenteditable="plaintext-only"></div> */ }
