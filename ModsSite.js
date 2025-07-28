@@ -1,36 +1,34 @@
-// import fs from 'fs';
+// curl -X GET "https://api.modrinth.com/v2/search?query=fabric&facets=%5B%5B%22project_type%3Amod%22%5D%5D" \
+//   -H "User-Agent: test-script/1.0 (you@example.com)"
+import prompt from 'prompt-sync';
+const promptSync = prompt();
 
-// const filePath = '/Users/lucian/Desktop/CodingNonGH/DAMODSSTIE/mods.json'; // Replace with the actual path to your JSON file
 
-// fs.readFile(filePath, 'utf8', (err, data) => {
-//     if (err) {
-//         console.error('Error reading JSON file:', err);
-//         return;
-//     }
-
-//     try {
-//         const jsonData = JSON.parse(data);
-//         console.log('JSON Data:', jsonData);
-//         // You can now work with the jsonData object
-//     } catch (parseError) {
-//         console.error('Error parsing JSON:', parseError);
-//     }
-// });
+console.log('Project Types Permitted: mod, resourcepack, shader, modpack')
+var project_type = promptSync('Enter project type:    ').toLowerCase();
+// display 10 current
+var search_querys_ORGIN = promptSync('Enter search querys:    ').toLowerCase();
+// console.log('search querys original:   ' + search_querys_ORGIN)
+var search_querys = search_querys_ORGIN.replaceAll(' ', ',')
+// console.log('search querys to search for:   ' + search_querys)
 
 
 
-
-
-
-
-fetch('modList.json')
-    .then(response => response.json())
-    .then(data => {
-        const container = document.getElementById('JSON');
-        data.forEach(item => {
-            const itemDiv = document.createElement('div');
-            itemDiv.innerHTML = `<h2>${item.name}</h2><p>${item.description}</p>`;
-            container.appendChild(itemDiv);
-        });
+fetch("https://api.modrinth.com/v2/search?query=" + search_querys + "&facets=%5B%5B%22project_type%3A" + project_type + "%22%5D%5D", {
+    method: "GET",
+    headers: {
+        "User-Agent": "test-script/1.0 (you@example.com)"
+    }
+})
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
     })
-    .catch(error => console.error('Error fetching JSON:' + error));
+    .then(data => {
+        console.log("Modrinth mods found:", data.hits);
+    })
+    .catch(error => {
+        console.error("Error fetching Modrinth data:", error);
+    });
