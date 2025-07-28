@@ -1,13 +1,21 @@
 // curl -X GET "https://api.modrinth.com/v2/search?query=fabric&facets=%5B%5B%22project_type%3Amod%22%5D%5D" \
 //   -H "User-Agent: test-script/1.0 (you@example.com)"
-import prompt from 'prompt-sync';
-const promptSync = prompt();
+// import prompt from 'prompt-sync';
+// const promptSync = prompt();
 console.log('Project Types Permitted: mod, resourcepack, shader, modpack')
 var project_type = promptSync('Enter project type:    ').toLowerCase();
 // display 10 current
-var search_querys_ORGIN = promptSync('Enter search querys:    ').toLowerCase();
+// 
+var search_querys_ORGIN = document.getElementById('search_querys').value;
+var search_querysARAY = search_querys_ORGIN.split(' ');
+console.log(search_querysARAY + 'search querys array')
+console.log(search_querys_ORGIN + 'search querys original')
+document.getElementById('SEARCH-QUERYS-LIST').value = search_querysARAY
+
+// = promptSync('Enter search querys:    ').toLowerCase();
 // console.log('search querys original:   ' + search_querys_ORGIN)
-var search_querys = search_querys_ORGIN.replaceAll(' ', ',')
+// var search_querys = search_querys_ORGIN.replaceAll(' ', ',')
+
 // console.log('search querys to search for:   ' + search_querys)
 
 
