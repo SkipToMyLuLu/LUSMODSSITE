@@ -1,4 +1,4 @@
-var search_querys_ORGIN = document.getElementById('search_querys').value;
+var search_querys_ORGIN = document.getElementById('search-querys').value;
 console.log('search querys original:   ' + search_querys_ORGIN)
 var SQ_tobe_ARAY = search_querys_ORGIN.toLowerCase();
 console.log('search querys to search for BEOFRE SPLITTING   ' + SQ_tobe_ARAY)
