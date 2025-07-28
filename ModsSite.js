@@ -2,8 +2,6 @@
 //   -H "User-Agent: test-script/1.0 (you@example.com)"
 import prompt from 'prompt-sync';
 const promptSync = prompt();
-
-
 console.log('Project Types Permitted: mod, resourcepack, shader, modpack')
 var project_type = promptSync('Enter project type:    ').toLowerCase();
 // display 10 current
