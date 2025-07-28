@@ -13,3 +13,4 @@ search_querysARAY.forEach(item => {
     liElement.textContent = item;
     ulElement.appendChild(liElement);
 })
+
