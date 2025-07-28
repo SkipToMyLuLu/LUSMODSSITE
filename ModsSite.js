@@ -1,5 +1,12 @@
 var aquireHtmlInput = document.getElementById('<div contenteditable="plaintext-only"></div>')
 
+const RELOAD = document.getElementById('RELOAD');
+
+RELOAD.addEventListener('click', () => {
+    location.reload();
+})
+
+
 var search_querys_ORGIN = aquireHtmlInput
 console.log('search querys original:   ' + search_querys_ORGIN)
 // var SQ_tobe_ARAY = search_querys_ORGIN.toLowerCase();
@@ -19,7 +26,7 @@ search_querysARAY.forEach(item => {
 var querys_stringified = search_querysARAY.join('');
 
 // Saving data
-sessionStorage.setItem('SEARCH-INPUTS', search_querysARAY);
+sessionStorage.setItem('SEARCH-INPUTS', 'TESTDATA');
 
 // Retrieving data
 const savedSessionData = sessionStorage.getItem('SEARCH-INPUTS');
