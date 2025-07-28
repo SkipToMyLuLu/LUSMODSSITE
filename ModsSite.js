@@ -7,7 +7,8 @@ var project_type = promptSync('Enter project type:    ').toLowerCase();
 // display 10 current
 // 
 var search_querys_ORGIN = document.getElementById('search_querys').value;
-var search_querysARAY = search_querys_ORGIN.split(' ');
+var SQ_tobe_ARAY = search_querys_ORGIN.replaceAll(' ', ',');
+var search_querysARAY = SQ_tobe_ARAY.split(' ', ',');
 console.log(search_querysARAY + 'search querys array')
 console.log(search_querys_ORGIN + 'search querys original')
 document.getElementById('SEARCH-QUERYS-LIST').value = search_querysARAY
