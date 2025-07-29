@@ -1,6 +1,6 @@
 const wordInput = document.getElementById("wordInput"); // Get the input element by its ID.
 const enterButton = document.getElementById("enterButton"); // Get the button element by its ID.
-
+var modsList
 // Event listener for the "keydown" event (pressing Enter in the input field)
 wordInput.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
@@ -12,38 +12,46 @@ wordInput.addEventListener("keydown", function (event) {
 enterButton.addEventListener("click", captureAndLogWord); // Call the same function when the button is clicked.
 
 function captureAndLogWord() {
-//    user enters one of the 4 main types
-//    
-   
+    //    user enters one of the 4 main types
+    //    
+
     const enteredWord = wordInput.value; // Get the value from the input field.
     console.log(enteredWord); // Print the captured word to the browser console.
     wordInput.value = ""; // Clear the input field (optional).
 
-    
-    
-    fetch("https://api.modrinth.com/v2/search?query=&facets=%5B%5B%22project_type%3A" + enteredWord + "%22%5D%5D&limit=100", {
-    method: "GET",
-    headers: {
-        "User-Agent": "test-script/1.0 (you@example.com)"
-    }
-})
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        //console.log(data);
-        // console.log("Modrinth mods found:", data.hits);
-        for (let i = 0; i < data.hits.length; i++) {
-            console.log(i + 1 + ": " + data.hits[i].title);
 
+
+    fetch("https://api.modrinth.com/v2/search?query=&facets=%5B%5B%22project_type%3A" + enteredWord + "%22%5D%5D&limit=100", {
+        method: "GET",
+        headers: {
+            "User-Agent": "test-script/1.0 (you@example.com)"
         }
     })
-    .catch(error => {
-        console.error("Error fetching Modrinth data:", error);
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            //console.log(data);
+            // console.log("Modrinth mods found:", data.hits);
+            modsList = document.getElementById("modsList"); // Get the element where you want to display the mods.
+            modsList.innerHTML = ""; // Clear the list before adding new items.
+            for (let i = 0; i < data.hits.length; i++) {
+                console.log(i + 1 + ": " + data.hits[i].title);
+
+                // modsList = document.getElementById("modsList"); // Get the element where you want to display the mods.
+                var modItem = document.createElement("li"); // Create a new list item element.
+                modItem.textContent = data.hits[i].title; // Set the text content of the list item to the mod title.
+
+                modsList.appendChild(modItem);
+
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching Modrinth data:", error);
+        });
 }
 
 
