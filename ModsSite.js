@@ -22,7 +22,7 @@ function captureAndSearchQuery() {
 
     enteredQuerys = queryInput.value; // Get the value from the query input field.
     console.log(enteredQuerys); // Print the captured query to the browser console.
-    queryInput.value = " "; // Clear the query input field (optional).
+    // queryInput.value = ""; // Clear the query input field (optional).
     captureAndLogWord()
 
 }
@@ -39,14 +39,19 @@ wordInput.addEventListener("keydown", function (event) {
 enterButton.addEventListener("click", captureAndLogWord); // Call the same function when the button is clicked.
 
 function captureAndLogWord() {
+    enteredQuerys = queryInput.value; // Get the value from the query input field.
     //    user enters one of the 4 main types
     //    
 
     // enteredWord is the project type to search for. Not search querys
 
-    const enteredWord = wordInput.value; // Get the value from the input field.
+    var enteredWord = wordInput.value; // Get the value from the input field.
     console.log(enteredWord); // Print the captured word to the browser console.
     wordInput.value = ""; // Clear the input field (optional).
+
+    if (enteredWord === "") {
+        enteredWord = "mod"; // Default to "mod" if no project type is entered.
+    }
 
     if (enteredQuerys) {
 
@@ -79,10 +84,14 @@ function captureAndLogWord() {
                     modsList.appendChild(modItem);
 
                 }
-            })
+                enteredQuerys = ""; // Clear the query input field after searching (optional).
+            }
+
+            )
             .catch(error => {
                 console.error("Error fetching Modrinth data:", error);
             });
+
 
     } else {
 
@@ -120,6 +129,8 @@ function captureAndLogWord() {
                 console.error("Error fetching Modrinth data:", error);
             });
     }
+    wordInput.value = ""; // Clear the word input field after logging the word (optional).
+    queryInput.value = ""; // Clear the query input field after searching (optional).
 }
 
 
