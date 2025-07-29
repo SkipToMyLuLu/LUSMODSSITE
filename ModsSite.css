@@ -25,6 +25,7 @@
 .MODINPUT {
     font-size: 1em;
     width: 21.5em;
+    padding: 1em;
 }
 
 .ENTER {
@@ -36,4 +37,10 @@
     font-family: 'Geneva', bold;
     /* font-family: Helvetica, bold; */
 
+}
+
+.QUERYINPUT {
+    font-size: 1em;
+    width: 10em;
+    padding: 1em;
 }
