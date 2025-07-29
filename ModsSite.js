@@ -75,7 +75,7 @@ function captureAndLogWord() {
                 modsList = document.getElementById("modsList"); // Get the element where you want to display the mods.
                 modsList.innerHTML = ""; // Clear the list before adding new items.
                 for (let i = 0; i < data.hits.length; i++) {
-                    console.log(i + 1 + ": " + data.hits[i].title);
+                    // console.log(i + 1 + ": " + data.hits[i].title); disabled until i can make settings menu
 
                     // modsList = document.getElementById("modsList"); // Get the element where you want to display the mods.
                     var modItem = document.createElement("li"); // Create a new list item element.
@@ -115,7 +115,7 @@ function captureAndLogWord() {
                 modsList = document.getElementById("modsList"); // Get the element where you want to display the mods.
                 modsList.innerHTML = ""; // Clear the list before adding new items.
                 for (let i = 0; i < data.hits.length; i++) {
-                    console.log(i + 1 + ": " + data.hits[i].title);
+                    // console.log(i + 1 + ": " + data.hits[i].title); disabled until i can make settings menu
 
                     // modsList = document.getElementById("modsList"); // Get the element where you want to display the mods.
                     var modItem = document.createElement("li"); // Create a new list item element.
