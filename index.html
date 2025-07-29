@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <!-- <link rel="stylesheet" href="ModsSite.css"> -->
+    <link rel="stylesheet" href="ModsSite.css">
     <!-- <script src="ModsSite.js"></script> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +10,15 @@
 
 
 <body>
-    <input type="text" id="wordInput" placeholder="Enter a word">
-    <button id="enterButton">Enter</button> <!-- Added button element with an ID -->
+    <div id="header">Welcome to Lu's Minecraft Mods!</div>
+    <div id="subheader">A collection of Lu's fave mods are in the (upcoming) favorites!</div>
+    <div id="api-creds">This site was made possible via Modrinth's API Labrynth, (and from
+        da best dad!)
+    </div>
+    <input type="text" id="wordInput" placeholder="Enter mod, shader, modpack, or resourcepack" class="MODINPUT">
+    <button id="enterButton" class="ENTER">Enter</button> <!-- Added button element with an ID -->
 
-    <ul id="modsList"></ul>
+    <ul id="modsList" class="MODSLISTUL"></ul>
 
     <script src="ModsSite.js"></script>
 </body>

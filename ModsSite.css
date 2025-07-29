@@ -1,0 +1,39 @@
+#header {
+    font-size: 2.5em;
+    font-family: 'Trebuchet MS';
+    text-align: center;
+
+}
+
+#subheader {
+    font-size: 1.5em;
+    font-family: 'Trebuchet MS';
+    text-align: center;
+}
+
+#api-creds {
+    bottom: 0.4em;
+    /* text-align: right; */
+    position: fixed;
+    right: 50;
+    /* text-align: bottom; */
+    font-size: 0.8em;
+    font-family: -apple-system;
+
+}
+
+.MODINPUT {
+    font-size: 1em;
+    width: 21.5em;
+}
+
+.ENTER {
+    font-size: 1em;
+}
+
+.MODSLISTUL {
+    font-size: 1.3em;
+    font-family: 'Geneva', bold;
+    /* font-family: Helvetica, bold; */
+
+}
