@@ -24,12 +24,13 @@
 
 .MODINPUT {
     font-size: 1em;
-    width: 21.5em;
+    width: 22em;
     padding: 1em;
+    height:0.5em;
 }
 
 .ENTER {
-    font-size: 1em;
+    font-size: 1.23em;
 }
 
 .MODSLISTUL {
@@ -40,8 +41,8 @@
 }
 
 .QUERYINPUT {
-    
+    height: 0.5em;
     font-size: 1em;
-    width: 21.5em;
+    width: 22em;
     padding: 1em;
 }
